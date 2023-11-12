@@ -6,12 +6,14 @@ const nextConfig = {
   webpack(config, options) {
     config.plugins.push(
       new NextFederationPlugin({
-        name: "appmicro_1",
+        name: "appmicro_2",
         filename: "static/chunks/remoteEntry.js",
         remotes: {
           appmicro_1: "appmicro_1@http://localhost:3000/_next/static/chunks/remoteEntry.js"
         },
-        exposes: []
+        exposes: {
+          './Button': './src/components/Button.jsx'
+        }
       })
     )
 
